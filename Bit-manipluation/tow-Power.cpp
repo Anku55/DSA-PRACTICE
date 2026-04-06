@@ -15,6 +15,20 @@ bool isPowerOfFour(int n) {
     // condition 2: bit at even position
     return (n & 0x55555555);
 }
+    bool isPowerOfFour2(int n) {
+        if(n==1)return true;
+        if(n<=0)return false;
+        while(n>0){
+            if(n%4==0){
+                n=n/4;
+                if(n==1) return true;
+            }else{
+                break;
+            }     
+
+        } 
+        return false;
+    }
 
 int main() {
     int n;
@@ -27,6 +41,10 @@ int main() {
         cout << "No, Not Power of 2\n";
 
         if (isPowerOfFour(n))
+        cout << "Yes, Power of 4\n";
+    else
+        cout << "No, Not Power of 4\n";
+        if (isPowerOfFour2(n))
         cout << "Yes, Power of 4\n";
     else
         cout << "No, Not Power of 4\n";
