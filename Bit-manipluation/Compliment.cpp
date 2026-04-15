@@ -22,6 +22,7 @@ int main() {
     Solution obj;
     
     int num = 5;
+    
     cout << "Complement: " << obj.findComplement(num) << endl;
 
     return 0;
