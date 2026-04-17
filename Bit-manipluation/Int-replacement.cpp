@@ -23,6 +23,18 @@ int integerRepcement(int n){
     return count;
 
 }
+// // brute force
+// int intReplace (int n){
+//     long long num=n;
+//     int count =0;
+//     while(num !=1){
+//         if(num &1){
+
+//         }else{
+
+//         }
+//     }
+// }
 int main(){
     int n; 
     cin>>n;
