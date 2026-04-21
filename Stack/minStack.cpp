@@ -26,8 +26,8 @@ public:
 };
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    
+
 
     MinStack obj;
 
@@ -35,13 +35,13 @@ int main() {
     obj.push(2);
     obj.push(10);
 
-    cout << obj.top() << "\n";     // 10
-    cout << obj.getMin() << "\n";  // 2
+    cout << obj.top() << "\n";     
+    cout << obj.getMin() << "\n";  
 
     obj.pop();
 
-    cout << obj.top() << "\n";     // 2
-    cout << obj.getMin() << "\n";  // 2
+    cout << obj.top() << "\n";     
+    cout << obj.getMin() << "\n";  
 
     return 0;
 }
