@@ -1,22 +1,29 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <unordered_set>
 
 class Solution {
 public:
-    vector<string> findRepeatedDnaSequences(string s) {
-        unordered_set<string> seen;
-        unordered_set<string> repeated;
+    void findRepeatedDnaSequences(const std::string& s) {
+        std::unordered_set<std::string> seen;
+        std::unordered_set<std::string> dup;
 
-        for (int i = 0; i + 9 < s.size(); i++) {
-            string sub = s.substr(i, 10);
+        const int n = static_cast<int>(s.size());
 
-            if (seen.count(sub)) {
-                repeated.insert(sub);
+        for (int i = 0; i + 9 < n; ++i) {
+            std::string sub = s.substr(i, 10);
+
+            if (seen.find(sub) != seen.end()) {
+                dup.insert(sub);
             } else {
                 seen.insert(sub);
             }
         }
 
-        return vector<string>(repeated.begin(), repeated.end());
+        
+        for (const auto& str : dup) {
+            std::cout << str << "\n";
+        }
     }
 };
