@@ -10,6 +10,16 @@ bool isPresent(int arr[][4],int target ,int row , int col){
     return false;
 }
 
+void colSum(int arr[][4] ,int row , int col){
+    for(int i=0;i<4;i++){
+        int sum=0;
+        for(int j=0;j<3;j++){
+            sum+=arr[j][i];
+        }
+        cout<<sum<<"  ";
+    }
+
+}
 void rowSum(int arr[][4] ,int row , int col){
     for(int i=0;i<3;i++){
         int sum=0;
@@ -53,6 +63,9 @@ int main(){
     cout<<endl;
     cout<<rowSum<<endl;
     rowSum(arr,3,4);
+    
+    cout<<"\n";
+    colSum(arr,3,4);
     // taking column wise input
 
     // for(int i=0;i<4;i++){
