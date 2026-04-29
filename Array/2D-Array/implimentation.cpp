@@ -31,8 +31,9 @@ void rowSum(int arr[][4] ,int row , int col){
 
 }
 
-void largestRowSum(int arr[][4] ,int row , int col){
+int largestRowSum(int arr[][4] ,int row , int col){
     int maxi=INT_MIN;
+    int rowIndex =-1;
         for(int i=0;i<3;i++){
         int sum=0;
         
@@ -41,9 +42,13 @@ void largestRowSum(int arr[][4] ,int row , int col){
         }
         if(sum>maxi){
             maxi=sum;
+            rowIndex=i;
+
         }
     }
     cout<<"maximum row sum is "<<maxi<<endl;
+
+    return rowIndex;
 
 }
 
@@ -83,7 +88,7 @@ int main(){
     cout<<"\n";
     colSum(arr,3,4);
     cout<<"\n";
-    largestRowSum(arr ,3,4);
+    cout<<largestRowSum(arr ,3,4);
     // taking column wise input
 
     // for(int i=0;i<4;i++){
