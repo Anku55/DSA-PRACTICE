@@ -1,21 +1,21 @@
 ################# Recursion ################################
-// class Solution {
-// public:
-//     int fun(int idx,vector<int>& nums){
-//         if(idx==0)return nums[0];
-//         if(idx<0)return 0;
-//         int pick=nums[idx]+fun(idx-2,nums);
-//         int notPick=fun(idx-1,nums);
+class Solution {
+public:
+    int fun(int idx,vector<int>& nums){
+        if(idx==0)return nums[0];
+        if(idx<0)return 0;
+        int pick=nums[idx]+fun(idx-2,nums);
+        int notPick=fun(idx-1,nums);
 
-//         return max(pick,notPick);
+        return max(pick,notPick);
 
-//     }
-//     int rob(vector<int>& nums) {
-//         int n=nums.size()-1;
-//       return  fun(n,nums);
+    }
+    int rob(vector<int>& nums) {
+        int n=nums.size()-1;
+      return  fun(n,nums);
         
-//     }
-// };
+    }
+};
 
 
 ########################## Memoization ############
@@ -37,6 +37,24 @@ public:
         int n=nums.size()-1;
         vector<int>dp(n+1,-1);
       return  fun(n,nums,dp);
+        
+    }
+};
+
+################################## Tabulation#################
+int rob(vector<int>& nums) {
+
+        int n=nums.size()-1;
+        vector<int>dp(n+1,-1);
+        dp[0]=nums[0];
+        int neg=0;
+        for(int i=1;i<=n;i++){
+            int fs=nums[i];
+            if(i>1)fs+=dp[i-2];
+            int ss=dp[i-1];
+            dp[i]=max(fs,ss);
+        }
+      return dp[n];
         
     }
 };
