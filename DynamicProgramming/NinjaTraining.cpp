@@ -1,3 +1,4 @@
+################## Rcursie way###########
 int fun(int ind,int last,vector<vector<int>> &points){
     if(ind==0){
         int maxi=0;
@@ -29,3 +30,42 @@ int ninjaTraining(int n, vector<vector<int>> &points)
     return fun(n-1,3,points);
 
 }
+
+############## Memoaization way############
+int fun(int ind,int last,vector<vector<int>> &points,vector<vector<int>>&dp){
+    if(ind==0){
+        int maxi=0;
+        for(int i=0;i<=2;i++){
+            if(last !=i){
+                maxi=max(points[ind][i],maxi);
+            }
+        }
+
+        return maxi;
+    }
+    if(dp[ind][last]!=-1){
+        return dp[ind][last];
+    }
+    int maxi=0;
+
+    for(int i=0;i<3;i++){
+        if(i!=last){
+            int point=points[ind][i]+fun(ind-1,i,points,dp);
+
+            maxi=max(maxi,point);
+
+        }
+    }
+
+    return dp[ind][last] =maxi;
+}
+int ninjaTraining(int n, vector<vector<int>> &points)
+
+{
+    vector<vector<int>> dp(n, vector<int>(4, -1));
+
+
+    return fun(n-1,3,points,dp);
+
+}
+
